@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   converters.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 09:11:48 by noaziki           #+#    #+#             */
+/*   Updated: 2025/04/09 13:45:21 by noaziki          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+long	ft_atoi(const char *str)
+{
+	long	i;
+	long	s;
+	long	r;
+
+	i = 0;
+	s = 1;
+	r = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			s *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		if (((i > 9 && s == 1) || (i > 10 && s == -1))
+			&& r > 2147483647)
+			return (2147483648);
+		r = r * 10 + str[i] - 48;
+		i++;
+	}
+	return (r * s);
+}
+
+void	extract_numbers(t_orion *orion)
+{
+	orion->i = 0;
+	orion->arr = malloc(orion->len * sizeof(long));
+	if (!orion->arr)
+		error(orion);
+	while (orion->i < orion->len && orion->matrix[orion->i])
+	{
+		orion->arr[orion->i] = ft_atoi(orion->matrix[orion->i]);
+		if (orion->arr[orion->i] > 2147483647
+			|| orion->arr[orion->i] < -2147483648)
+			error(orion);
+		orion->i++;
+	}
+}
+
+void	merge_args(t_orion *orion, char **argv)
+{
+	char	*tmp;
+
+	orion->i = 1;
+	orion->str = NULL;
+	while (argv[orion->i])
+	{
+		check_blank_str(argv[orion->i], orion);
+		tmp = ft_strjoin(orion->str, argv[orion->i]);
+		free (orion->str);
+		if (!tmp)
+			error(orion);
+		orion->str = tmp;
+		tmp = ft_strjoin(orion->str, " ");
+		free (orion->str);
+		if (!tmp)
+			error(orion);
+		orion->str = tmp;
+		orion->i++;
+	}
+}

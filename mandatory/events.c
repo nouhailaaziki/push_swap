@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 18:07:20 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/09 14:03:38 by noaziki          ###   ########.fr       */
+/*   Created: 2025/04/09 10:33:53 by noaziki           #+#    #+#             */
+/*   Updated: 2025/04/09 11:58:08 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	error(t_orion *orion)
 {
-	t_orion	orion;
-
-	if (argc > 1)
+	orion->i = 0;
+	orion->j = 0;
+	if (orion->matrix)
 	{
-		merge_args(&orion, argv);
-		orion.matrix = ft_split(orion.str, ' ');
-		free(orion.str);
-		check_forbidden_chars(&orion);
-		orion.len = 0;
-		while (orion.matrix[orion.len])
-			orion.len++;
-		extract_numbers(&orion);
-		check_duplicates(&orion);
+		while (orion->matrix[orion->i])
+		{
+			free(orion->matrix[orion->i]);
+			orion->i++;
+		}
 	}
-	return (0);
+	free (orion->matrix);
+	if (orion->arr)
+		free(orion->arr);
+	write(1, "Error\n", 7);
+	exit (1);
 }
