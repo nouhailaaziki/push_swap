@@ -6,11 +6,40 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:30:41 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/09 13:47:11 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/12 16:50:57 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*h;
+
+	i = 0;
+	h = (unsigned char *) s;
+	while (i < n)
+	{
+		h[i] = 0;
+		i++;
+	}
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
+	size_t	total_bytes;
+
+	total_bytes = count * size;
+	if (count && total_bytes / count != size)
+		return (NULL);
+	p = malloc(count * size);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, count * size);
+	return (p);
+}
 
 size_t	ft_strlen(const char *s)
 {

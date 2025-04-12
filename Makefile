@@ -1,15 +1,19 @@
 COMPILER = cc
 
 CFLAGS = -Wall -Wextra -Werror
-
 RED = \033[0;31m
 GREEN = \033[0;32m
 RESET = \033[0m
 
-MANDATORY =	mandatory/input_guard.c \
+MANDATORY =	mandatory/rev_rotate_ops.c \
+			mandatory/input_guard.c \
 			mandatory/converters.c \
+			mandatory/rotate_ops.c \
 			mandatory/push_swap.c \
 			mandatory/utilities.c \
+			mandatory/manage_sort.c \
+			mandatory/swap_ops.c \
+			mandatory/push_ops.c \
 			mandatory/strlab.c \
 			mandatory/events.c
 

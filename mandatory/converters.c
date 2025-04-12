@@ -6,7 +6,7 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:11:48 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/09 13:45:21 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/09 15:01:15 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ long	ft_atoi(const char *str)
 void	extract_numbers(t_orion *orion)
 {
 	orion->i = 0;
-	orion->arr = malloc(orion->len * sizeof(long));
-	if (!orion->arr)
+	orion->a = malloc(orion->len * sizeof(long));
+	if (!orion->a)
 		error(orion);
 	while (orion->i < orion->len && orion->matrix[orion->i])
 	{
-		orion->arr[orion->i] = ft_atoi(orion->matrix[orion->i]);
-		if (orion->arr[orion->i] > 2147483647
-			|| orion->arr[orion->i] < -2147483648)
+		orion->a[orion->i] = ft_atoi(orion->matrix[orion->i]);
+		if (orion->a[orion->i] > 2147483647
+			|| orion->a[orion->i] < -2147483648)
 			error(orion);
 		orion->i++;
 	}
@@ -61,7 +61,6 @@ void	merge_args(t_orion *orion, char **argv)
 	char	*tmp;
 
 	orion->i = 1;
-	orion->str = NULL;
 	while (argv[orion->i])
 	{
 		check_blank_str(argv[orion->i], orion);

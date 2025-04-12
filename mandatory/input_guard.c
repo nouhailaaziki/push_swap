@@ -6,7 +6,7 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 10:21:42 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/09 13:46:44 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/09 14:55:36 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_duplicates(t_orion *orion)
 		n = j + 1;
 		while (n < orion->len)
 		{
-			if (orion->arr[j] == orion->arr[n])
+			if (orion->a[j] == orion->a[n])
 				error(orion);
 			n++;
 		}
