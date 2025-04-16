@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   converters.c                                       :+:      :+:    :+:   */
+/*   converters_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:11:48 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/16 15:30:39 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/16 16:45:17 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	get_index_in_sorted(long *sorted, int len, long value)
-{
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (sorted[i] == value)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
+#include "push_swap_bonus.h"
 
 long	ft_atoi(const char *str)
 {

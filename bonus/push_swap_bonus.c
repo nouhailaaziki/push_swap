@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:07:20 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/16 15:26:29 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/16 16:42:08 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	init_orion(t_orion *orion)
 {
 	orion->a = NULL;
 	orion->b = NULL;
 	orion->matrix = NULL;
-	orion->sorted = NULL;
 	orion->str = NULL;
 }
 

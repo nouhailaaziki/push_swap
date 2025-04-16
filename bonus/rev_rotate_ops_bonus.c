@@ -1,68 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_ops.c                                         :+:      :+:    :+:   */
+/*   rev_rotate_ops_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 14:13:15 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/16 15:31:08 by noaziki          ###   ########.fr       */
+/*   Created: 2025/04/09 14:13:00 by noaziki           #+#    #+#             */
+/*   Updated: 2025/04/16 16:41:38 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	pa(t_orion *orion, char *str)
+void	rra(t_orion *orion, char *str)
 {
-	int	i;
+	int		i;
+	long	tmp;
 
-	if (orion->b_len > 0)
+	if (orion->a_len > 1)
 	{
-		i = orion->a_len;
+		tmp = orion->a[orion->a_len - 1];
+		i = orion->a_len - 1;
 		while (i > 0)
 		{
 			orion->a[i] = orion->a[i - 1];
 			i--;
 		}
-		orion->a[0] = orion->b[0];
-		i = 0;
-		while (i < orion->b_len - 1)
-		{
-			orion->b[i] = orion->b[i + 1];
-			i++;
-		}
-		orion->b[i] = 0;
-		orion->a_len++;
-		orion->b_len--;
+		orion->a[0] = tmp;
 	}
 	if (str)
 		write(1, str, ft_strlen(str));
 	check_orderly(orion);
 }
 
-void	pb(t_orion *orion, char *str)
+void	rrb(t_orion *orion, char *str)
 {
-	int	i;
+	int		i;
+	long	tmp;
 
-	if (orion->a_len > 0)
+	if (orion->b_len > 1)
 	{
-		i = orion->b_len;
+		tmp = orion->b[orion->b_len - 1];
+		i = orion->b_len - 1;
 		while (i > 0)
 		{
 			orion->b[i] = orion->b[i - 1];
 			i--;
 		}
-		orion->b[0] = orion->a[0];
-		i = 0;
-		while (i < orion->a_len - 1)
-		{
-			orion->a[i] = orion->a[i + 1];
-			i++;
-		}
-		orion->a[i] = 0;
-		orion->b_len++;
-		orion->a_len--;
+		orion->b[0] = tmp;
 	}
+	if (str)
+		write(1, str, ft_strlen(str));
+	check_orderly(orion);
+}
+
+void	rrr(t_orion *orion, char *str)
+{
+	rra(orion, NULL);
+	rrb(orion, NULL);
 	if (str)
 		write(1, str, ft_strlen(str));
 	check_orderly(orion);
