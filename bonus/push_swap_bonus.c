@@ -6,11 +6,30 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:07:20 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/16 16:42:08 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/17 10:17:41 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	checker(t_orion *orion)
+{
+	char	*line;
+
+	orion->a_len = orion->len;
+	orion->b_len = 0;
+	line = get_next_line(0);
+	while (line)
+	{
+		check_ops(line, orion);
+		line = get_next_line(0);
+	}
+	if (!check_orderly(orion) && orion->b_len == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	exit_program(orion);
+}
 
 void	init_orion(t_orion *orion)
 {
@@ -39,7 +58,7 @@ int	main(int argc, char **argv)
 		orion.b = ft_calloc(orion.len, sizeof(long));
 		if (!orion.b)
 			error(&orion);
-		applay_ops(&orion);
+		checker(&orion);
 	}
 	return (1);
 }

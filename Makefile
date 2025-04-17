@@ -19,6 +19,7 @@ MANDATORY =	mandatory/rev_rotate_ops.c \
 			mandatory/events.c 
 
 BONUS = bonus/rev_rotate_ops_bonus.c \
+		bonus/get_next_line_bonus.c \
 		bonus/input_guard_bonus.c \
 		bonus/converters_bonus.c \
 		bonus/rotate_ops_bonus.c \
