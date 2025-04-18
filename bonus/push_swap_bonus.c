@@ -6,7 +6,7 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:07:20 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/17 10:17:41 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/17 10:35:16 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ int	main(int argc, char **argv)
 			error(&orion);
 		checker(&orion);
 	}
-	return (1);
+	return (0);
 }

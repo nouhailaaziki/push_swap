@@ -6,7 +6,7 @@
 /*   By: noaziki <noaziki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/06 10:24:03 by noaziki           #+#    #+#             */
-/*   Updated: 2025/04/17 10:11:46 by noaziki          ###   ########.fr       */
+/*   Updated: 2025/04/17 10:35:03 by noaziki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h>
 
 typedef struct s_orion
 {
